@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Frontend | Desarrollador Web</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eeeef mechanics',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300 antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="fixed top-0 left-0 w-full z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#inicio" class="text-xl font-extrabold tracking-tight group flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center text-sm shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">&lt;/&gt;</span>
+                <span class="bg-gradient-to-r from-indigo-600 to-violet-500 bg-clip-text text-transparent">DevPortafolio</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#inicio" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors py-1">Inicio</a>
+                <a href="#proyectos" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors py-1">Proyectos</a>
+                <a href="#habilidades" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors py-1">Habilidades</a>
+                <a href="#sobre-mi" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors py-1">Sobre mí</a>
+                <a href="#contacto" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors py-1">Contacto</a>
+            </nav>
+
+            <!-- Actions (Theme Toggle & Mobile Menu Btn) -->
+            <div class="flex items-center gap-3">
+                <!-- Dark Mode Toggle Button -->
+                <button id="theme-toggle" aria-label="Cambiar tema" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 border border-slate-200 dark:border-slate-700 transition-all hover:scale-105 focus:outline-none">
+                    <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
+                    <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
+                </button>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobile-menu-btn" aria-label="Abrir menú" class="md:hidden p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 focus:outline-none">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="mobile-link block px-3 py-2 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200">Inicio</a>
+            <a href="#proyectos" class="mobile-link block px-3 py-2 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200">Proyectos</a>
+            <a href="#habilidades" class="mobile-link block px-3 py-2 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200">Habilidades</a>
+            <a href="#sobre-mi" class="mobile-link block px-3 py-2 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200">Sobre mí</a>
+            <a href="#contacto" class="mobile-link block px-3 py-2 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200">Contacto</a>
+        </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section id="inicio" class="min-h-screen pt-28 pb-16 flex items-center relative overflow-hidden">
+        <!-- Background Decorative Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-72 h-72 bg-violet-500/10 dark:bg-violet-500/15 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Info Column -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <!-- Availability Badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Disponible para proyectos y empleo
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                    Desarrollador <span class="bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-500 bg-clip-text text-transparent">Frontend</span> & Creador de Experiencias Web
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    Especializado en transformar ideas en interfaces web interactivas, ultrarrápidas y accesibles. Enfocado en escribir código limpio y optimizado con <strong>HTML5, Tailwind CSS y JavaScript / React</strong>.
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#proyectos" class="px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/40 hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                        <span>Ver proyectos</span>
+                        <i class="fas fa-arrow-down text-sm"></i>
+                    </a>
+                    <a href="#contacto" class="px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-medium border border-slate-200 dark:border-slate-700 hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                        <span>Contactar ahora</span>
+                        <i class="fas fa-paper-plane text-sm"></i>
+                    </a>
+                    <a href="https://wa.me/00000000000" target="_blank" rel="noopener noreferrer" class="px-4 py-3.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 transition-all flex items-center justify-center" title="WhatsApp Directo">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                    </a>
+                </div>
+
+                <!-- Fast Specs List -->
+                <div class="pt-6 border-t border-slate-200 dark:border-slate-800 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 text-center lg:text-left">
+                    <div>
+                        <p class="text-2xl font-bold text-slate-900 dark:text-white">100%</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Diseño Responsivo</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold text-slate-900 dark:text-white">Clean</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Código Semántico</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold text-slate-900 dark:text-white">API</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Integración Web</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Graphic / Code Card -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-md bg-slate-900 rounded-2xl shadow-2xl border border-slate-800 overflow-hidden text-slate-300 font-mono text-sm leading-relaxed transform rotate-1 hover:rotate-0 transition-transform duration-300">
+                    <!-- Terminal Bar -->
+                    <div class="bg-slate-800/90 px-4 py-3 border-b border-slate-700 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                        </div>
+                        <span class="text-xs text-slate-400">developer.js</span>
+                    </div>
+                    <!-- Terminal Code Body -->
+                    <div class="p-5 space-y-3">
+                        <p class="text-slate-500">// Perfil de Desarrollador</p>
+                        <p><span class="text-indigo-400">const</span> <span class="text-yellow-400">developer</span> = {</p>
+                        <p class="pl-4"><span class="text-sky-400">nombre</span>: <span class="text-emerald-400">'Frontend Developer'</span>,</p>
+                        <p class="pl-4"><span class="text-sky-400">enfoque</span>: <span class="text-emerald-400">'UX / UI & Performance'</span>,</p>
+                        <p class="pl-4"><span class="text-sky-400">tecnologias</span>: [</p>
+                        <p class="pl-8 text-amber-300">'HTML5', 'CSS3/Tailwind', 'JavaScript ES6+', 'React'</p>
+                        <p class="pl-4">],</p>
+                        <p class="pl-4"><span class="text-sky-400">disponible</span>: <span class="text-indigo-400">true</span>,</p>
+                        <p class="pl-4"><span class="text-sky-400">crearSolucion</span>: <span class="text-indigo-400">function</span>() {</p>
+                        <p class="pl-8 text-indigo-300">return <span class="text-emerald-400">'Web Rápida + Código Limpio'</span>;</p>
+                        <p class="pl-4">}</p>
+                        <p>};</p>
+                        <p class="text-slate-500 border-t border-slate-800 pt-3">// Estado del servidor: Listo para compilar 🚀</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= PROJECTS SECTION ================= -->
+    <section id="proyectos" class="py-20 bg-slate-100/50 dark:bg-slate-800/30 border-y border-slate-200 dark:border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <!-- Section Header -->
+            <div class="text-center space-y-4 max-w-2xl mx-auto">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Portafolio de Trabajos</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Proyectos Destacados</p>
+                <p class="text-slate-600 dark:text-slate-400">Una selección de proyectos web creados con buenas prácticas, maquetación responsive e interacción dinámica.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 text-sm">
+                <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl font-medium transition-all bg-indigo-600 text-white shadow-sm">Todos</button>
+                <button data-filter="javascript" class="filter-btn px-4 py-2 rounded-xl font-medium transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">JavaScript</button>
+                <button data-filter="tailwind" class="filter-btn px-4 py-2 rounded-xl font-medium transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">Tailwind CSS</button>
+                <button data-filter="api" class="filter-btn px-4 py-2 rounded-xl font-medium transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">Consumo de APIs</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                
+                <!-- Project 1: Pizzería -->
+                <div class="project-card group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/60 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col" data-category="landing ecommerce">
+                    <!-- Image Showcase -->
+                    <div class="relative h-48 overflow-hidden bg-slate-900">
+                        <img src="https://placehold.co/600x400/ea580c/ffffff?text=Family+Pizza+Web" alt="Family Pizza Website" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/ea580c/ffffff?text=Family+Pizza'">
+                        <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-md text-xs text-orange-400 font-mono">Pizzería & Menú</div>
+                    </div>
+                    <!-- Body Content -->
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Family Pizza</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-3">Página web comercial interactiva para pizzería local con menú digital, promociones dinámicas y sistema directo de pedidos automatizados hacia WhatsApp.</p>
+                        </div>
+                        <!-- Tech Badges -->
+                        <div class="flex flex-wrap gap-2 text-xs font-medium">
+                            <span class="px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-600 dark:text-orange-400">HTML5 / CSS3</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300">Tailwind CSS</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300">WhatsApp API</span>
+                        </div>
+                        <!-- Actions -->
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-between text-sm">
+                            <button onclick="openModal('Family Pizza', 'Sitio web moderno diseñado para restaurantes. Cuenta con catálogo interactivode pizzas, filtro de ingredientes, calculadora de combos y carrito con integración directa a WhatsApp para concretar pedidos de manera rápida.', ['HTML5', 'Tailwind CSS', 'JavaScript ES6', 'WhatsApp API'], 'https://placehold.co/600x400/ea580c/ffffff?text=Family+Pizza+Web')" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline flex items-center gap-1">
+                                Detalle <i class="fas fa-chevron-right text-xs"></i>
+                            </button>
+                            <div class="flex gap-3 text-base">
+                                <a href="https://github.com" target="_blank" class="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors" title="Ver en GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://example.com" target="_blank" class="text-slate-400 hover:text-indigo-600 transition-colors" title="Demo en Vivo"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Funeraria e Ismael Guzmán -->
+                <div class="project-card group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/60 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col" data-category="landing">
+                    <div class="relative h-48 overflow-hidden bg-slate-900">
+                        <img src="https://placehold.co/600x400/334155/ffffff?text=Capilla+Ismael+Guzman" alt="Funerales e Ismael Guzmán" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/334155/ffffff?text=Ismael+Guzman'">
+                        <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-md text-xs text-sky-400 font-mono">Servicios Corporativos</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Funerales y Capilla Ismael Guzmán</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-3">Plataforma web institucional con catálogo de planes previsionales, llamadas de emergencia en un clic y diseño sobrio, accesible y respetuoso.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 text-xs font-medium">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300">HTML5 Semántico</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300">Tailwind CSS</span>
+                            <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">Call-to-Action 24/7</span>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-between text-sm">
+                            <button onclick="openModal('Funerales y Capilla Ismael Guzmán', 'Landing page empresarial enfocada en servicios funerales e intangibles. Incluye catálogo interactivo de ataúdes y ataúdes prémium, planes de previsión familiar, geolocalización de capillas y botón flotante de atención inmediata las 24 horas.', ['HTML5', 'Tailwind CSS', 'JavaScript', 'UX Accesible'], 'https://placehold.co/600x400/334155/ffffff?text=Capilla+Ismael+Guzman')" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline flex items-center gap-1">
+                                Detalle <i class="fas fa-chevron-right text-xs"></i>
+                            </button>
+                            <div class="flex gap-3 text-base">
+                                <a href="https://github.com" target="_blank" class="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors" title="Ver Código"><i class="fab fa-github"></i></a>
+                                <a href="https://example.com" target="_blank" class="text-slate-400 hover:text-indigo-600 transition-colors" title="Demo en Vivo"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Importadora de Vehículos -->
+                <div class="project-card group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/60 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col" data-category="ecommerce">
+                    <div class="relative h-48 overflow-hidden bg-slate-900">
+                        <img src="https://placehold.co/600x400/2563eb/ffffff?text=Importadora+de+Vehiculos" alt="Importadora de Vehículos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/2563eb/ffffff?text=Importadora+Autos'">
+                        <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-md text-xs text-blue-400 font-mono">Catálogo & Filtros</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Importadora de Vehículos</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-3">Portal web automotriz para importación de vehículos con catálogo filtrable por año/marca/tipo, ficha técnica detallada y cotizador de importación.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 text-xs font-medium">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300">JavaScript ES6</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300">Tailwind CSS</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300">Filtros Dinámicos</span>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-between text-sm">
+                            <button onclick="openModal('Importadora de Vehículos', 'Catálogo web de vehículos importados desde EE. UU. y Asia. Cuenta con buscador en tiempo real por marca, año y tipo de transmisión, cotizador dinámico de costos de flete e impuestos de aduana, e integración con galerías fotográficas en alta resolución.', ['JavaScript ES6', 'Tailwind CSS', 'HTML5', 'Filtros UI'], 'https://placehold.co/600x400/2563eb/ffffff?text=Importadora+de+Vehiculos')" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline flex items-center gap-1">
+                                Detalle <i class="fas fa-chevron-right text-xs"></i>
+                            </button>
+                            <div class="flex gap-3 text-base">
+                                <a href="https://github.com" target="_blank" class="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                                <a href="https://example.com" target="_blank" class="text-slate-400 hover:text-indigo-600 transition-colors"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modal Detail Project -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-xl w-full p-6 border border-slate-200 dark:border-slate-700 shadow-2xl space-y-4 relative animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white p-1">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <img id="modal-img" src="" alt="Project Detail" class="w-full h-56 object-cover rounded-xl bg-slate-900">
+            <h3 id="modal-title" class="text-2xl font-bold text-slate-900 dark:text-white"></h3>
+            <p id="modal-desc" class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed"></p>
+            <div id="modal-tags" class="flex flex-wrap gap-2 text-xs"></div>
+            <div class="pt-4 flex gap-3">
+                <a id="modal-demo" href="" target="_blank" class="flex-1 py-2.5 rounded-xl bg-indigo-600 text-white text-center font-medium hover:bg-indigo-700 transition-colors text-sm">Ver Demo en Vivo</a>
+                <a id="modal-github" href="#" target="_blank" class="px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-center font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors text-sm"><i class="fab fa-github"></i> Código</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= SKILLS SECTION ================= -->
+    <section id="habilidades" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center space-y-4 max-w-2xl mx-auto">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Stack Tecnológico</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Habilidades y Herramientas</p>
+                <p class="text-slate-600 dark:text-slate-400">Las tecnologías que utilizo día a día para crear productos digitales funcionales y atractivos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Category 1: Frontend Core -->
+                <div class="bg-white dark:bg-slate-800/80 p-8 rounded-2xl border border-slate-200 dark:border-slate-700/60 shadow-sm space-y-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Frontend Core</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 font-medium"><i class="fab fa-html5 text-orange-500"></i> HTML5 Semántico</span>
+                            <span class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-950 px-2 py-0.5 rounded">Avanzado</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 font-medium"><i class="fab fa-css3-alt text-blue-500"></i> CSS3 & Flexbox / Grid</span>
+                            <span class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-950 px-2 py-0.5 rounded">Avanzado</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 font-medium"><i class="fab fa-js text-yellow-400"></i> JavaScript (ES6+)</span>
+                            <span class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-950 px-2 py-0.5 rounded">Intermedio</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 font-medium"><i class="fab fa-react text-sky-400"></i> React (Fundamentos)</span>
+                            <span class="text-xs text-slate-500 font-semibold bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded">En Proceso</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Category 2: Styling & Frameworks -->
+                <div class="bg-white dark:bg-slate-800/80 p-8 rounded-2xl border border-slate-200 dark:border-slate-700/60 shadow-sm space-y-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 text-violet-600 dark:text-violet-400 flex items-center justify-center text-xl">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Estilos & UI</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 font-medium"><i class="fas fa-wind text-teal-400"></i> Tailwind CSS</span>
+                            <span class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-950 px-2 py-0.5 rounded">Avanzado</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 font-medium"><i class="fas fa-mobile-alt text-slate-400"></i> Responsive Web Design</span>
+                            <span class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-950 px-2 py-0.5 rounded">Avanzado</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 font-medium"><i class="fas fa-universal-access text-emerald-400"></i> Accesibilidad (a11y)</span>
+                            <span class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-950 px-2 py-0.5 rounded">Intermedio</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 font-medium"><i class="fab fa-figma text-pink-500"></i> Figma (Maquetación)</span>
+                            <span class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-950 px-2 py-0.5 rounded">Intermedio</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Category 3: Tools & Workflow -->
+                <div class="bg-white dark:bg-slate-800/80 p-8 rounded-2xl border border-slate-200 dark:border-slate-700/60 shadow-sm space-y-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Herramientas</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 font-medium"><i class="fab fa-git-alt text-red-500"></i> Git & GitHub</span>
+                            <span class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-950 px-2 py-0.5 rounded">Avanzado</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 font-medium"><i class="fas fa-cloud-upload-alt text-sky-500"></i> Vercel & Netlify</span>
+                            <span class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-950 px-2 py-0.5 rounded">Avanzado</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 font-medium"><i class="fas fa-terminal text-purple-400"></i> VS Code & Terminal</span>
+                            <span class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-950 px-2 py-0.5 rounded">Avanzado</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 font-medium"><i class="fas fa-network-wired text-indigo-400"></i> Consumo de REST APIs</span>
+                            <span class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-950 px-2 py-0.5 rounded">Intermedio</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ABOUT ME SECTION ================= -->
+    <section id="sobre-mi" class="py-20 bg-slate-100/50 dark:bg-slate-800/30 border-y border-slate-200 dark:border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Avatar Placeholder -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden shadow-xl border-4 border-white dark:border-slate-800 bg-slate-900 group">
+                        <img src="https://placehold.co/400x400/1e293b/6366f1?text=Desarrollador" alt="Perfil Desarrollador" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/1e293b/ffffff?text=Developer'">
+                        <div class="absolute inset-0 bg-indigo-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                </div>
+
+                <!-- Right Description -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Conóceme</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Apasionado por crear interfaces web efectivas</h3>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        ¡Hola! Soy un desarrollador web enfocado en la tecnología **Frontend**. Mi objetivo principal es transformar requisitos complejos en interfaces intuitivas, rápidas y agradables para el usuario.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Me apasiona el aprendizaje continuo y mantenerme al día con las mejores prácticas de la industria: desde maquetación **Mobile-First** hasta la optimización del rendimiento y accesibilidad.
+                    </p>
+
+                    <!-- Feature Highlights -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/60 flex items-start gap-3 text-left">
+                            <i class="fas fa-check-circle text-indigo-600 dark:text-indigo-400 text-lg mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Atención al Detalle</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Fidelidad en el diseño e interacciones fluidas.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/60 flex items-start gap-3 text-left">
+                            <i class="fas fa-check-circle text-indigo-600 dark:text-indigo-400 text-lg mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Trabajo en Equipo</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Comunicación transparente y uso activo de Git.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section id="contacto" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center space-y-4 max-w-2xl mx-auto">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">¿Tienes un proyecto en mente?</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Ponte en Contacto</p>
+                <p class="text-slate-600 dark:text-slate-400">Estoy disponible para nuevas oportunidades laborales, proyectos freelance y colaboraciones.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto">
+                
+                <!-- Contact Direct Badges -->
+                <div class="lg:col-span-5 space-y-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Información Directa</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Puedes escribir me directamente por cualquiera de estos medios:</p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <a href="mailto:tuemail@ejemplo.com" class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/60 flex items-center gap-4 hover:border-indigo-500 transition-colors group">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Correo Electrónico</p>
+                                <p class="text-sm font-semibold text-slate-800 dark:text-slate-200">tuemail@ejemplo.com</p>
+                            </div>
+                        </a>
+
+                        <a href="https://linkedin.com" target="_blank" class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/60 flex items-center gap-4 hover:border-indigo-500 transition-colors group">
+                            <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">LinkedIn</p>
+                                <p class="text-sm font-semibold text-slate-800 dark:text-slate-200">in/tu-perfil-linkedin</p>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com" target="_blank" class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/60 flex items-center gap-4 hover:border-indigo-500 transition-colors group">
+                            <div class="w-10 h-10 rounded-lg bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">GitHub</p>
+                                <p class="text-sm font-semibold text-slate-800 dark:text-slate-200">github.com/tu-usuario</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7 bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700/60 shadow-lg">
+                    <form id="contact-form" class="space-y-5">
+                        <div>
+                            <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Nombre completo</label>
+                            <input type="text" id="name" required placeholder="Tu nombre o empresa" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Correo electrónico</label>
+                            <input type="email" id="email" required placeholder="correo@ejemplo.com" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Mensaje</label>
+                            <textarea id="message" rows="4" required placeholder="Cuéntame sobre tu proyecto..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors text-sm resize-none"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium shadow-md transition-all flex items-center justify-center gap-2">
+                            <span>Enviar Mensaje</span>
+                            <i class="fas fa-paper-plane text-xs"></i>
+                        </button>
+
+                        <!-- Feedback Box -->
+                        <div id="form-feedback" class="hidden p-4 rounded-xl text-center text-sm font-medium"></div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="py-8 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-slate-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 DevPortafolio. Todos los derechos reservados.</p>
+            <p>Diseñado & Maquetado con HTML5, Tailwind CSS y JS Vainilla</p>
+        </div>
+    </footer>
+
+    <!-- ================= INTERACTION SCRIPT ================= -->
+    <script>
+        // DOM Elements
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        const contactForm = document.getElementById('contact-form');
+        const formFeedback = document.getElementById('form-feedback');
+
+        // Modal Elements
+        const modal = document.getElementById('project-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalTags = document.getElementById('modal-tags');
+        const modalImg = document.getElementById('modal-img');
+
+        // 1. Theme Logic (Dark / Light)
+        function initTheme() {
+            if (localStorage.getItem('color-theme') === 'light') {
+                document.documentElement.classList.remove('dark');
+                lightIcon.classList.remove('hidden');
+            } else {
+                document.documentElement.classList.add('dark');
+                darkIcon.classList.remove('hidden');
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // 2. Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 3. Projects Filter Logic
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-indigo-600', 'text-white');
+                    b.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+                });
+
+                btn.classList.add('active', 'bg-indigo-600', 'text-white');
+                btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 4. Modal Functions
+        function openModal(title, desc, tags, img) {
+            modalTitle.textContent = title;
+            modalDesc.textContent = desc;
+            modalImg.src = img;
+            modalTags.innerHTML = tags.map(t => `<span class="px-2.5 py-1 rounded-md bg-indigo-50 dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 font-medium">${t}</span>`).join('');
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // 5. Simulated Contact Form Submit
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formFeedback.classList.remove('hidden', 'bg-red-500/10', 'text-red-500', 'bg-emerald-500/10', 'text-emerald-500');
+            
+            formFeedback.classList.add('bg-emerald-500/10', 'text-emerald-600', 'dark:text-emerald-400');
+            formFeedback.textContent = '¡Gracias por tu mensaje! Me pondré en contacto contigo muy pronto.';
+
+            contactForm.reset();
+
+            setTimeout(() => {
+                formFeedback.classList.add('hidden');
+            }, 5000);
+        });
+
+        // Initialize Theme on Load
+        initTheme();
+    </script>
+</body>
+</html>
